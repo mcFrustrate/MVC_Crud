@@ -1,0 +1,41 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "All Registered User";
+}
+<h2>List of Registered Users</h2>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>UserID</th>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Age</th>
+            <th>Gender</th>
+            <th>Address</th>
+            <th>Country</th>
+            <th>Civil Status</th>
+            <th>Religion</th>
+            <th colspan="2">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var register in Model)
+        {
+            <tr>
+                <td>@register.UserId</td>
+                <td>@register.FirstName</td>
+                <td>@register.LastName</td>
+                <td>@register.Age</td>
+                <td>@register.Gender</td>
+                <td>@register.Address</td>
+                <td>@register.country</td>
+                <td>@register.civilStatus</td>
+                <td>@register.Religion</td>
+                <td><a asp-action="edit" asp-route-id="@register.UserId" class="text-info">Edit</a></td>
+                <td><a asp-action="delete" asp-route-id="@register.UserId" class="text-danger">Delete</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
